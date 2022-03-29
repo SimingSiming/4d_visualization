@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+    <HEAD>
+        <TITLE>SimingSu_Project2</TITLE>
+        <link rel="stylesheet" type="text/css" media="all" href="../../newTemplate.css" /> 
+    </HEAD>
+
+    <BODY bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+        <div id="wrap">
+    	    <div class="left_column"></div>
+
+            <!-- Replace to your own title below -->
+    	    <div class="right_column"><strong><span class="style4">Data River within 3D and 4D Dimension</span><br></strong></div>
+            
+            <div class="line"></div>
+            <div class="left_column"><strong>MAT 259, 2022</strong></div>
+
+            <!-- Replace to your name below -->
+            <div class="right_column"><strong>Siming, Su</strong></div>
+            
+            <div class="line"><hr noshade size="1"></div> 
+            
+            <!-- Concept Section -->
+            <div class="left_column"><strong>Concept</strong></div>
+            <div class="right_column">
+                As a continuing exploration of my first project, I have found that the reason 
+                why people spend less time on art class is that the library puts all albums and 
+                music in Dewey class from 700 to 799. Thus, obviously listening to music takes less 
+                time. This project is to visualize the top 5 selling items in the art class, and how 
+                the check-in and check-out dates are structured in both 3d and 4d by making an 
+                amination of the movement from check-out date to check-in date. It looks like a 
+                river in a cube and tesseract, so I call it Data River.  <br>
+            </div>
+            <div class="line"><hr noshade size="1"></div> 
+        
+            <div class="left_column"><strong>Query</strong></div>
+            <div class="right_column">
+                SELECT callNumber, count(*) FROM spl_2016.inraw <br>
+                WHERE DeweyClass >= 700 AND DeweyClass <= 799 AND year(cout) >= 2015 AND year(cout) <= 2020 <br>
+                GROUP BY callNumber <br>
+                ORDER BY count(*) DESC <br>
+                LIMIT 10 <br>
+
+                SELECT  <br>
+                year(cin) as cin_year,  <br>
+                month(cin) as cin_month,  <br>
+                day(cin) as cin_day, <br>
+                year(cout) as cout_year, <br>
+                month(cout) as cout_month,<br>
+                day(cout) as cout_day,<br>
+                callNumber<br>
+                FROM spl_2016.inraw <br>
+                WHERE (callNumber = "CD 782.42166 N86" <br>
+                OR callNumber = "CDJ 782.42083 K541" <br>
+                OR callNumber = "791.45028 N661N 2016"  <br>
+                OR callNumber = "797.12309 B8126B 2013" <br>
+                OR callNumber = "CD 782.42166 Ad32T") <br>
+                AND year(cout) <= 2020 <br>
+                AND year(cout) >= 2015 <br>
+            </div>
+            <div class="line"><hr noshade size="1"></div>
+
+            <!-- Sketches Section -->
+            <div class="left_column"><strong>Preliminary sketches</strong></div>
+            <div class="right_column">
+                3D Scratch for the cube<br><br>    
+                <img src="sketch_one.png" width="500"/><br><br>
+
+                4D Scratch for the tesseract <br><br>  
+                <img src="sketch_two.png" width="500"/><br><br>     
+
+                4D Rotation and Projection Matrix <br><br>  
+                <img src="sketch_three.png" width="500"/><br><br>   
+
+            </div>
+            <div class="line"><hr noshade size="1"></div>
+        
+            <!-- Process Section -->
+            <div class="left_column"><strong>Process</strong></div>
+            <div class="right_column">    
+                Some image result in 3D<br><br>
+                <img src="process_one.png" width="500"/><br><br>
+                <img src="process_two.png" width="500"/><br><br>
+            </div>
+            <div class="line"><hr noshade size="1"></div> 
+            
+             <!-- Final Section -->
+            <div class="left_column"><strong>Final result</strong></div>
+            <div class="right_column">    
+                Video Attached about the whole project, some screen shot of 4d tesseract Data River.<br><br>
+                <iframe src="https://youtube.com/embed/waKcMWKSQlc" width="500" height="395"></iframe><br><br>
+                <img src="tess_vis_1.png" width="500"/><br><br>
+                <img src="tess_vis_2.png" width="500"/><br><br>
+                <img src="tess_vis_3.png" width="500"/><br><br>
+                
+            </div>
+            <div class="line"><hr noshade size="1"></div> 
+            
+             <!-- Source Code Section -->
+            <div class="left_column"><strong>Code</strong></div>
+            <div class="right_column">
+                All work is developed within Processing and MySQL<br>
+                <!-- Please put the link of the source code and data below -->
+                <a href="two_cubes.zip">Source Code + Data</a><br><br>    
+            </div>
+            <div class="line"><hr noshade size="1"></div> 
+        </div><!--END WRAP-->
+    </BODY>
+</HTML>
